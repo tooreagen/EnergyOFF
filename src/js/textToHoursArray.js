@@ -30,6 +30,7 @@ export function textToHoursArray(on, maybe) {
 function hoursArray(text) {
     const regex = /(\d{2}:\d{2})[\sA-Za-zА-Яа-я]*(\d{2}:\d{2})/g;
     const arrayHoursBuffer = [];
+    let match = {};
 
     //отримаємо кількість груп годин
     let countHoursGroup = 0;
