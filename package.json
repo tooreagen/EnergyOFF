@@ -18,6 +18,8 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+    "chrono-node": "^2.5.0",
+    "dayjs": "^1.11.7",
     "modern-normalize": "^1.1.0"
   },
   "devDependencies": {
