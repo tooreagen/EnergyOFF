@@ -1,19 +1,5 @@
-import { blackout } from "./js/objectBlackout";
+import { blackout, textPowerOff } from "./js/objectBlackout";
 import { textToHoursArray } from "./js/textToHoursArray";
-
-const rowOn = "з 00:00 до 02:00, 04:00 до 07:00, 10:00 до 12:00, 16:00 до 18:00, 21:00 до 00:00 – черги будуть з електропостачанням";
-const rowMaybe = "з 02:00 до 04:00, 09:00 до 10:00, 21:00 до 00:00 – можливі вимкнення";
-
-
-
-const arrayHours_q_1_1__1_2 = textToHoursArray(rowOn, rowMaybe);
-blackout.map((item, i) => {
-    item.q_1_1__1_2 = arrayHours_q_1_1__1_2[i];
-});
-
-
-
-
 
 const blackoutTable = document.querySelector(".blackout-table");
 const startUpMarkup = `<li class="list-item item-heading">
@@ -61,4 +47,16 @@ function blockColor(color) {
     return markupStyle;
 }
 
+function objectFilling() {
+    textPowerOff.map((itemText) => { 
+        const arrayHours = textToHoursArray(itemText.rowOn, itemText.rowMaybe);
+        blackout.map((item, i) => item[itemText.q] = arrayHours[i]);
+        console.log(arrayHours);
+      //  console.log(blackout);
+    });
+}
+
+objectFilling();
+
 createMarkup();
+
